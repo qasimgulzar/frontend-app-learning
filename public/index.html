@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en-us">
-  <head>
+<head>
     <title>Course | <%= process.env.SITE_NAME %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<%=htmlWebpackPlugin.options.FAVICON_URL%>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%=htmlWebpackPlugin.options.FAVICON_URL%>" type="image/x-icon"/>
 
     <% if (htmlWebpackPlugin.options.OPTIMIZELY_PROJECT_ID) { %>
-      <script src="https://www.edx.org/optimizelyjs/<%= htmlWebpackPlugin.options.OPTIMIZELY_PROJECT_ID %>.js"></script>
+    <script src="https://www.edx.org/optimizelyjs/<%= htmlWebpackPlugin.options.OPTIMIZELY_PROJECT_ID %>.js"></script>
     <% } %>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    <script src="<%= process.env.LMS_BASE_URL %>/static/django_search_backend/js/search_library.js"
+            type="text/javascript"></script>
+</head>
+<body>
+<div id="root"></div>
+</body>
 </html>

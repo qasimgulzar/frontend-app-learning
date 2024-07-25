@@ -6,6 +6,7 @@ import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Button } from '@openedx/paragon';
 import { PluginSlot } from '@openedx/frontend-plugin-framework';
+import CoursewareAutoSuggest from '@src/generic/search/AutoSuggest';
 import { AlertList } from '../../generic/user-messages';
 
 import CourseDates from './widgets/CourseDates';
@@ -162,8 +163,11 @@ const OutlineTab = ({ intl }) => {
           <WelcomeMessage courseId={courseId} />
           {rootCourseId && (
             <>
-              <div className="row w-100 m-0 mb-3 justify-content-end">
-                <div className="col-12 col-md-auto p-0">
+              <div className="row w-100 m-0 mb-3 justify-content-start">
+                <div className="col-md-10 col-md-auto p-0">
+                  <CoursewareAutoSuggest courseId={courseId} />
+                </div>
+                <div className="col-md-2 col-md-auto p-0">
                   <Button variant="outline-primary" block onClick={() => { setExpandAll(!expandAll); }}>
                     {expandAll ? intl.formatMessage(messages.collapseAll) : intl.formatMessage(messages.expandAll)}
                   </Button>
