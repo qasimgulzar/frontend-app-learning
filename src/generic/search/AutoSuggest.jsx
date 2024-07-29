@@ -20,7 +20,7 @@ const CoursewareAutoSuggest = ({ courseId }) => {
         if (state.token) {
           setState({ ...state, loading: true });
           const searchEngine = new SearchEngine(state.token.search_engine, state.token, 'courseware_course_structure'); // eslint-disable-line
-          searchEngine.search(userProvidedText, {}, (resp) => {
+          searchEngine.search(userProvidedText, { course: courseId }, (resp) => {
             setState({ ...state, results: resp.results, loading: false });
           }, () => {
           });
